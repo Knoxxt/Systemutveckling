@@ -1,0 +1,104 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Game21
+{
+    class Green : Monster
+    {
+
+        enum AiState
+        {
+            Chasing,
+            Wander
+        }
+        private Vector2 centre;
+        private static Vector2 currentPosition;
+        ReadManager rm;
+        private float maxSpeed, chaseDistance, hysteresis;
+        bool wanderMovement;
+        AiState state = AiState.Wander;
+        public Green(Texture2D texture, Vector2 position, bool isWall, Rectangle hitbox, ReadManager rm) : base(texture, position, isWall, hitbox)
+        {
+            textureData = new Color[texture.Width * texture.Height];
+            texture.GetData(textureData);
+            this.rm = rm;
+            centre = new Vector2(texture.Width / 2, texture.Height / 2);
+            maxSpeed = 2;
+            chaseDistance = 50;
+            hysteresis = 15;
+            currentPosition = position;
+            wanderMovement = true;
+        }
+
+        public new void Update(GameTime gameTime)
+        {
+            hitbox = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+            GreenUpdate();
+        }
+
+        private void GreenUpdate()
+        {
+            float distanceFromHero = Vector2.Distance(position, rm.hero.position);
+            float chaseThreshold = chaseDistance;
+            float currentSpeed;
+
+            if (state == AiState.Wander)
+            {
+                chaseThreshold -= hysteresis / 2;
+            }
+
+            else if (state == AiState.Chasing)
+            {
+                chaseThreshold += hysteresis / 2;
+            }
+
+            if (distanceFromHero > chaseThreshold)
+            {
+                state = AiState.Wander;
+            }
+            else if (distanceFromHero < chaseThreshold)
+            {
+                state = AiState.Chasing;
+            }
+
+            if(state == AiState.Chasing)
+            {
+                currentSpeed = maxSpeed;
+                Vector2 direction = Vector2.Normalize(rm.hero.position - position);
+                position.X += direction.X * currentSpeed;
+            }
+            else if (state == AiState.Wander)
+            {
+                if (wanderMovement)
+                {
+                    currentSpeed = maxSpeed / 2;
+                    position.X += currentSpeed;
+                }
+                else
+                {
+                    currentSpeed = -maxSpeed / 2;
+                    position.X += currentSpeed;
+                }
+
+                if (position.X >= currentPosition.X + texture.Width)
+                {
+                    wanderMovement = false;
+                }
+                else if(position.X <= currentPosition.X - texture.Width)
+                {
+                    wanderMovement = true;
+                }
+            }
+
+        }
+        public new void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, position, Color.White);
+        }
+    }
+}
