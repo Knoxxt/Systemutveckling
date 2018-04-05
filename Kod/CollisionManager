@@ -1,0 +1,45 @@
+using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Game21
+{
+    class CollisionManager
+    {
+        ReadManager rm;
+        Game1 g;
+        public CollisionManager(ReadManager rm, Game1 g)
+        {
+            this.rm = rm;
+            this.g = g;
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            foreach (Tile t in rm.tileList)
+            {
+                t.Update(gameTime);
+                if (rm.hero.hitbox.Intersects(t.hitbox))
+                {
+                    if (g.IntersectPixel(rm.hero.hitbox, rm.hero.textureData, t.hitbox, t.textureData))
+                    {
+                        rm.hero.hasJumped = false;
+                        rm.hero.velocity.Y = 0f;
+                        break;
+                    }
+                    else
+                    {
+                        rm.hero.hasJumped = true;
+                    }
+                }
+                else
+                {
+                    rm.hero.hasJumped = true;
+                }
+            }
+        }
+    }
+}
