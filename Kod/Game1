@@ -16,6 +16,7 @@ namespace Game21
         private Variables var;
         private ReadManager rm;
         private Camera camera;
+        private CollisionManager cm;
 
         public Game1()
         {
@@ -35,8 +36,10 @@ namespace Game21
         {
             var.floor = Content.Load<Texture2D>("floor");
             var.hero = Content.Load<Texture2D>("hero");
+            var.greenMonster = Content.Load<Texture2D>("greenMonster");
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            rm = new ReadManager(var.floor, var.hero, var.floorRec, var.heroRec);
+            rm = new ReadManager(var);
+            cm = new CollisionManager(rm, this);
 
         }
 
@@ -51,37 +54,10 @@ namespace Game21
                 Exit();
             KeymouseReader.Update();
             rm.hero.Update(gameTime);
-            foreach (Tile t in rm.tileList)
-            {
-                t.Update(gameTime);
-                if (rm.hero.hitbox.Intersects(t.hitbox))
-                {
-                    if(IntersectPixel(rm.hero.hitbox, rm.hero.textureData, t.hitbox, t.textureData))
-                    {
-                        rm.hero.hasJumped = false;
-                        rm.hero.velocity.Y = 0f;
-                        break;
-                    }
-                    else
-                    {
-                        rm.hero.hasJumped = true;
-                    }
-                }
-                else
-                {
-                    rm.hero.hasJumped = true;
-                }
-            }
-
-            if (rm.hero.hasJumped)
-            {
-                Window.Title = "True";
-            }
-            else if (!rm.hero.hasJumped)
-            {
-                Window.Title = "False";
-            }
+            rm.green.Update(gameTime);
+            cm.Update(gameTime);
             camera.Update(gameTime, rm.hero);
+            Window.Title = "Position X: " + rm.green.position.X;
             base.Update(gameTime);
         }
 
@@ -92,6 +68,7 @@ namespace Game21
 
             spriteBatch.Begin(transformMatrix: camera.transform);
             rm.hero.Draw(spriteBatch);
+            rm.green.Draw(spriteBatch);
             foreach (Tile t in rm.tileList)
             {
                 t.Draw(spriteBatch);
@@ -102,8 +79,9 @@ namespace Game21
         }
 
 
-        public static bool IntersectPixel(Rectangle rect1, Color[] data1,
-           Rectangle rect2, Color[] data2)
+    #region PixelCollision
+        public bool IntersectPixel(Rectangle rect1, Color[] data1,
+   Rectangle rect2, Color[] data2)
         {
             int top = Math.Max(rect1.Top, rect2.Top);
             int bottom = Math.Min(rect1.Bottom, rect2.Bottom);
@@ -124,6 +102,7 @@ namespace Game21
 
 
             return false;
-        }
+        } 
+        #endregion
     }
 }
