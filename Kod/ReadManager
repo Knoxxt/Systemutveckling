@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 
 namespace Game21
 {
-    class ReadManager
+    class ReadManager // Created by Anton
     {
         public Hero hero;
+        public Green green;
         public Tile[,] tiles;
         public List<Tile> tileList = new List<Tile>();
         public List<GameObject> gameObjects = new List<GameObject>();
 
-        public ReadManager(Texture2D floorTex, Texture2D heroTex, Rectangle floorHb, Rectangle heroHb)
+        public ReadManager(Variables var) // Placement of created instances of object.
         {
             List<string> strings = new List<string>();
             StreamReader sr = new StreamReader("map.txt");
@@ -33,17 +34,21 @@ namespace Game21
                 {
                     if (strings[j][i] == 'f')
                     {
-                        tiles[i, j] = new Tile(floorTex, new Vector2(32 * i, 32 * j), true, floorHb);
+                        tiles[i, j] = new Tile(var.floor, new Vector2(32 * i, 32 * j), true, var.floorRec);
                         tileList.Add(tiles[i, j]);
                         gameObjects.Add(tiles[i, j]);
                     }
-                    else if (strings[j][i] == 'n')
+                    else if (strings[j][i] == '-')
                     {
 
                     }
                     else if (strings[j][i] == 'h')
                     {
-                        hero = new Hero(heroTex, new Vector2(32 * 1, 32 * j), false, this, heroHb);
+                        hero = new Hero(var.hero, new Vector2(32 * i, 32 * j), false, var.heroRec);
+                    }
+                    else if (strings[j][i] == 'g')
+                    {
+                        green = new Green(var.greenMonster, new Vector2(32 * i, 32 * j), false, var.greenMonsterRec, this);
                     }
                 }
             }
