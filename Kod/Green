@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game21
+namespace Game21 // Created by Anton.
 {
     class Green : Monster
     {
 
-        enum AiState
+        enum AiState // Different state of movement.
         {
             Chasing,
             Wander
@@ -29,7 +29,7 @@ namespace Game21
             this.rm = rm;
             centre = new Vector2(texture.Width / 2, texture.Height / 2);
             maxSpeed = 2;
-            chaseDistance = 50;
+            chaseDistance = 250;
             hysteresis = 15;
             currentPosition = position;
             wanderMovement = true;
@@ -47,7 +47,7 @@ namespace Game21
             float chaseThreshold = chaseDistance;
             float currentSpeed;
 
-            if (state == AiState.Wander)
+            if (state == AiState.Wander) // Created to avoid constantly removing in and out of range. 
             {
                 chaseThreshold -= hysteresis / 2;
             }
@@ -66,13 +66,13 @@ namespace Game21
                 state = AiState.Chasing;
             }
 
-            if(state == AiState.Chasing)
+            if(state == AiState.Chasing) // if chasing go towards hero position.
             {
                 currentSpeed = maxSpeed;
                 Vector2 direction = Vector2.Normalize(rm.hero.position - position);
                 position.X += direction.X * currentSpeed;
             }
-            else if (state == AiState.Wander)
+            else if (state == AiState.Wander) // if wandering go towards original position then walk back and forth.
             {
                 if (wanderMovement)
                 {
@@ -98,7 +98,7 @@ namespace Game21
         }
         public new void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.Draw(texture, position - centre, Color.White);
         }
     }
 }
