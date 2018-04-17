@@ -1,0 +1,49 @@
+using GeonBit.UI;
+using GeonBit.UI.Entities;
+using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Game21
+{
+    class Interface
+    {
+        private Panel panel;
+        private Button startGame, exitGame;
+        Game1 g;
+        public Interface(Game1 g)
+        {
+            this.g = g;
+        }
+        
+        public void Menu() // HUD for menu. Created by Anton Persson.
+        {
+            panel = new Panel(new Vector2(g.Width / 2, g.Height / 2), PanelSkin.Simple);
+            UserInterface.Active.AddEntity(panel);
+            panel.FillColor = Color.DimGray;
+            panel.ShadowColor = Color.Black;
+            startGame = new Button("Start Game", ButtonSkin.Default, Anchor.TopCenter, new Vector2(g.Width / 4, g.Height / 8));
+            panel.AddChild(startGame);
+            startGame.FillColor = Color.DarkRed;
+            startGame.ShadowColor = Color.Black;
+            exitGame = new Button("Exit Game", ButtonSkin.Default, Anchor.BottomCenter, new Vector2(g.Width / 4, g.Height / 8));
+            panel.AddChild(exitGame);
+            exitGame.FillColor = Color.DarkRed;
+            exitGame.ShadowColor = Color.Black;
+
+            startGame.OnClick = (Entity start) =>
+            {
+                g.state = GameState.Game;
+                panel.Visible = false;
+            };
+
+            exitGame.OnClick = (Entity exit) =>
+            {
+                g.Exit();
+            };
+        }
+    }
+}
