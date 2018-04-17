@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Game21
 {
-    class CollisionManager
+    class CollisionManager // Created by Anton.
     {
         ReadManager rm;
         Game1 g;
@@ -19,7 +19,7 @@ namespace Game21
 
         public void Update(GameTime gameTime)
         {
-            foreach (Tile t in rm.tileList)
+            foreach (Tile t in rm.tileList) // Collision checking between hero and tiles.
             {
                 t.Update(gameTime);
                 if (rm.hero.hitbox.Intersects(t.hitbox))
