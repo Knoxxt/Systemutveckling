@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Game21
 {
-    public struct Variables
+    public struct Variables // All variables. Created by Anton Persson.
     {
-        public Texture2D floor, hero;
-        public Rectangle floorRec, heroRec;
+        public Texture2D floor, hero, greenMonster, menuBG;
+        public Rectangle floorRec, heroRec, greenMonsterRec;
     }
 }
