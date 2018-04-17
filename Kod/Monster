@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Game21
 {
-    abstract class Monster : GameObject
+    abstract class Monster : GameObject // Created by Anton.
     {
         protected Color[] textureData;
         public Monster(Texture2D texture, Vector2 position, bool isWall, Rectangle hitbox) : base(texture, position, isWall, hitbox)
