@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Game21
 {
-    class Camera
+    class Camera // Camera that follows the hero both x and y axis. Created by Oscar.
     {
         public Matrix transform;
         private Viewport view;
@@ -20,8 +20,8 @@ namespace Game21
         }
 
         public void Update(GameTime gameTime, Hero hero)
-        {
-            centre = new Vector2(hero.position.X + (hero.hitbox.Width / 2) - 400, 0);
+        { 
+            centre = new Vector2(hero.position.X + (hero.hitbox.Width / 2) - 900, hero.position.Y + (hero.hitbox.Height / 2) - 400);
             transform = Matrix.CreateScale(new Vector3(1, 1, 0)) * Matrix.CreateTranslation(new Vector3(-centre.X, -centre.Y, 0));
         }
     }
