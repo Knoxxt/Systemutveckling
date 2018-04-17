@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Game21
 {
-    class Tile : GameObject
+    class Tile : GameObject // Created by Anton.
     {
         public Color[] textureData;
         public bool Iswall => isWall;
