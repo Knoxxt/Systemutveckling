@@ -9,32 +9,38 @@ using System.Threading.Tasks;
 
 namespace Game21
 {
-    class Hero : GameObject
+    class Hero : GameObject // Created by Anton.
     {
         public Color[] textureData;
-        public Vector2 velocity;
-        private ReadManager rm;
+        public Vector2 velocity, centre;
+        private Rectangle sourceRectangle;
         public bool hasJumped;
+        private float rotation;
+        private SpriteEffects heroFX;
 
-        public Hero(Texture2D texture, Vector2 position, bool isWall, ReadManager rm, Rectangle hitbox) : base(texture, position, isWall, hitbox)
+        public Hero(Texture2D texture, Vector2 position, bool isWall, Rectangle hitbox) : base(texture, position, isWall, hitbox)
         {
             hasJumped = true;
-            this.rm = rm;
             textureData = new Color[texture.Width * texture.Height];
+            centre = new Vector2(5, 5);
             texture.GetData(textureData);
+            rotation = 0;
         }
 
         public new void Update(GameTime gameTime)
         {
             position += velocity;
             hitbox = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
+            // Movement.
             if (KeymouseReader.KeyPressed(Keys.Left) || KeymouseReader.KeyPressed(Keys.A))
             {
                 velocity.X = -2;
+                heroFX = SpriteEffects.FlipHorizontally;
             }
             else if (KeymouseReader.KeyPressed(Keys.Right) || KeymouseReader.KeyPressed(Keys.D))
             {
                 velocity.X = 2;
+                heroFX = SpriteEffects.None;
             }
             else if ((KeymouseReader.KeyPressed(Keys.Up) || KeymouseReader.KeyPressed(Keys.W)) && hasJumped == false)
             {
@@ -42,7 +48,7 @@ namespace Game21
                 velocity.Y = -5f;
                 hasJumped = true;
             }
-            else
+            else // Gravity.
             {
                 velocity.X = 0;
             }
@@ -50,6 +56,11 @@ namespace Game21
             velocity.Y += 0.15f * 1;
 
 
+        }
+
+        public new void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, position, null, Color.White, rotation, centre, 1, heroFX, 1);
         }
     }
 }
