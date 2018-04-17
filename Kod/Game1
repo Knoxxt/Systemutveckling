@@ -1,3 +1,4 @@
+using GeonBit.UI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -6,9 +7,13 @@ using System.Collections.Generic;
 
 namespace Game21
 {
-    /// <summary>
-    /// This is the main type for your game.
-    /// </summary>
+    public enum GameState // Created by Anton.
+    {
+        Menu,
+        Game,
+        Combat,
+        Inventory
+    }
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
@@ -17,7 +22,20 @@ namespace Game21
         private ReadManager rm;
         private Camera camera;
         private CollisionManager cm;
+        private Interface interfaces;
+        private float width, height;
 
+        public float Width // Game Window Width
+        {
+            get { return width; }
+            set { width = value; }
+        }
+        public float Height // Game Window Height
+        {
+            get { return height; }
+            set { height = value; }
+        }
+        public GameState state = GameState.Menu;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -28,6 +46,14 @@ namespace Game21
         {
             camera = new Camera(GraphicsDevice.Viewport);
             var = new Variables();
+            height = GraphicsDevice.DisplayMode.Height;
+            width = GraphicsDevice.DisplayMode.Width;
+            UserInterface.Initialize(Content, BuiltinThemes.hd);
+            UserInterface.Active.SetCursor(CursorType.Default);
+            graphics.PreferredBackBufferWidth = (int)width;
+            graphics.PreferredBackBufferHeight = (int)height;
+            graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
             base.Initialize();
         }
 
@@ -36,11 +62,16 @@ namespace Game21
         {
             var.floor = Content.Load<Texture2D>("floor");
             var.hero = Content.Load<Texture2D>("hero");
+            var.menuBG = Content.Load<Texture2D>("bg");
             var.greenMonster = Content.Load<Texture2D>("greenMonster");
             spriteBatch = new SpriteBatch(GraphicsDevice);
             rm = new ReadManager(var);
             cm = new CollisionManager(rm, this);
-
+            interfaces = new Interface(this);
+            if (state == GameState.Menu)
+            {
+                interfaces.Menu();
+            }
         }
 
         protected override void UnloadContent()
@@ -53,11 +84,14 @@ namespace Game21
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             KeymouseReader.Update();
-            rm.hero.Update(gameTime);
-            rm.green.Update(gameTime);
-            cm.Update(gameTime);
-            camera.Update(gameTime, rm.hero);
-            Window.Title = "Position X: " + rm.green.position.X;
+            if(state == GameState.Game)
+            {
+                rm.hero.Update(gameTime);
+                rm.green.Update(gameTime);
+                cm.Update(gameTime);
+                camera.Update(gameTime, rm.hero);
+            }
+            UserInterface.Active.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -66,15 +100,24 @@ namespace Game21
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin(transformMatrix: camera.transform);
-            rm.hero.Draw(spriteBatch);
-            rm.green.Draw(spriteBatch);
-            foreach (Tile t in rm.tileList)
+            if(state == GameState.Game)
             {
-                t.Draw(spriteBatch);
+                spriteBatch.Begin(transformMatrix: camera.transform);
+                rm.hero.Draw(spriteBatch);
+                rm.green.Draw(spriteBatch);
+                foreach (Tile t in rm.tileList)
+                {
+                    t.Draw(spriteBatch);
+                }
+                spriteBatch.End();
             }
-            spriteBatch.End();
-
+            if(state == GameState.Menu)
+            {
+                spriteBatch.Begin();
+                spriteBatch.Draw(var.menuBG, new Rectangle(0, 0, (int)width, (int)height), Color.White);
+                spriteBatch.End();
+            }
+            UserInterface.Active.Draw(spriteBatch);
             base.Draw(gameTime);
         }
 
@@ -103,6 +146,6 @@ namespace Game21
 
             return false;
         } 
-        #endregion
+        #endregion // Perpixel collision. Created by Anton. (OBS should be moved).
     }
 }
