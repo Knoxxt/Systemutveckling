@@ -1,0 +1,85 @@
+{\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fswiss\fprq2\fcharset0 Arial;}{\f1\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue0;}
+{\*\generator Riched20 10.0.16299}\viewkind4\uc1 
+\pard\widctlpar\sl276\slmult1\cf1\b\f0\fs48\lang1033 Encounter Turn-based combat\par
+\b0\fs22\par
+Anv\'e4ndningsfall id:\tab UC2\par
+Version:\tab\tab 1.0\par
+M\'e5ls\'e4ttning:\tab\tab Anv\'e4ndare spelar Teneris\par
+Skapad av:\tab\tab Anton Persson\par
+Skapad n\'e4r:\tab\tab 2018-05-05\par
+Uppdaterad av:\tab\par
+Uppdaterad n\'e4r:\tab\par
+Akt\'f6r:\tab\tab\tab User\par
+Trigger:\tab\tab User v\'e4ljer att starta spelet, och kolliderar med en fiende.\par
+Frekvens:\tab\tab Upp till m\'e5nga g\'e5nger per timme\par
+\par
+Status f\'f6re:\tab\tab Inget som p\'e5verkar \par
+\par
+\b\fs24 Basic flow\par
+\b0\fs22 Start av spelet.\par
+\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\sl240\slmult1 Steg\cell Beskrivning\cell\row\trowd\trgaph108\trleft-100\trrh200\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\sl240\slmult1 1\cell Anv\'e4ndaren startar spelet.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\sl240\slmult1 2\cell Systemet visar startmenyn - inneh\'e5ller Start New Game, Load Existing Game, About och Exit.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\sl240\slmult1 3\cell Anv\lang1053\'e4ndaren f\'f6rflyttar karakt\'e4ren med \'f6nskad input. WASD eller piltangenterna.\lang1033\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\sl240\slmult1 4\cell Systemet f\'f6rflyttar karakt\'e4ren tv\'e5 pixlar per update \'e5t \'f6nskat h\'e5ll.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\sl240\slmult1 5\cell Anv\'e4ndaren kolliderar med en fiende.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 6\cell Systemet byter GameState till combat, och laddar dess metoder. Sedan visas combatmenyn - inneh\'e5ller Attack, Spells.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 7\cell Anv\'e4ndaren trycker p\'e5 "Attack" knappen.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 8\cell Systemet f\'f6rflyttar karakt\'e4ren automatiskt mot fienden med tv\'e5 pixlar per update, reducerar health variablen baserat p\'e5 damage variablen, och sedan f\'f6rflyttas tillbaka, med samma hastighet, till sin ursprungliga position.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 9\cell Anv\'e4ndaren trycker p\'e5 "Spells" knappen.\cell\row\trowd\trgaph108\trleft-100\trrh516\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 10\cell Systemet ut\'f6kar menyn - inneh\'e5ller Spell1, Spell2, Spell3, och Spell4.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 11\cell Anv\'e4ndaren trycker p\'e5 Spell1 knappen.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 12\cell Spell1 Update metoden k\'f6rs, inklusive dess draw/animation.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 13\cell Anv\'e4ndaren trycker p\'e5 Spell2 knappen.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 14\cell Spell2 Update metoden k\'f6rs, inklusive dess draw/animation.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 15\cell Anv\'e4ndaren trycker p\'e5 Spell3 knappen.\cell\row\trowd\trgaph108\trleft-100\trrh480\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 16\cell Spell3 Update metoden k\'f6rs, inklusive dess draw/animation.\cell\row\trowd\trgaph108\trleft-100\trrh480\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 17\cell Anv\'e4ndaren trycker p\'e5 Spell3 knappen.\cell\row\trowd\trgaph108\trleft-100\trrh480\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 18\cell Spell4 Update metoden k\'f6rs, inklusive dess draw/animation.\cell\row\trowd\trgaph108\trleft-100\trrh480\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 19\cell Fiendens health variabel \'e4r under noll.\cell\row\trowd\trgaph108\trleft-100\trrh480\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 20\cell Systemet visar en "Exit Combat" knapp.\cell\row\trowd\trgaph108\trleft-100\trrh480\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 21\cell Anv\'e4ndaren trycker p\'e5 knappen.\cell\row\trowd\trgaph108\trleft-100\trrh480\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 22\cell Systemet s\'e4tter position till positionen innan combat och sedan \'e4ndrar GameState till game.\cell\row 
+\pard\widctlpar\sl276\slmult1 Slutet av anv\'e4ndarfallet.\par
+\par
+\b\fs24 Alternative flow\par
+\b0\fs22 Exit game\b\fs24\par
+\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1\b0\fs22 Steg\cell Beskrivning\cell\row\trowd\trgaph108\trleft-100\trrh756\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 1\cell Efter steg tv\'e5 v\'e4ljer anv\'e4ndaren att klicka p\'e5 krysset uppe till v\'e4nster eller exit i startmenyn.\cell\row\trowd\trgaph108\trleft-100\trbrdrl\brdrs\brdrw10\brdrbtw\brdrbar \trbrdrt\brdrs\brdrw10 \trbrdrr\brdrs\brdrw10 \trbrdrb\brdrs\brdrw10 \trpaddl108\trpaddr108\trpaddfl3\trpaddfr3
+\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx4414\clbrdrl\brdrw20\brdrs\brdrcf1\clbrdrt\brdrw20\brdrs\brdrcf1\clbrdrr\brdrw20\brdrs\brdrcf1\clbrdrb\brdrw20\brdrs\brdrcf1 \cellx8928 
+\pard\intbl\nowidctlpar\widctlpar\sl240\slmult1 2\cell Systemet st\'e4nger av spelet.\cell\row 
+\pard\widctlpar\sl276\slmult1\par
+\b\fs24 Special requirements\par
+\b0\fs22 Systemet s\'e4kerhetsst\'e4ller alltid att karakt\'e4ren \'e4r centrerad i bilden, och \'e4ven att bilden \'e4r inzoomad under combat.\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\lang9\par
+}
+ 
