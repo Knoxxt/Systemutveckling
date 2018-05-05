@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/Anton/Desktop/Game21/Game21/Content/GeonBit.UI/themes/lowres/styles/VerticalScrollbar-Default.xml</SourceFile>
+  <SourceTime>2018-04-16T18:47:22.7801429+02:00</SourceTime>
+  <DestFile>C:/Users/Anton/Desktop/Game21/Game21/Content/bin/Windows/GeonBit.UI/themes/lowres/styles/VerticalScrollbar-Default.xnb</DestFile>
+  <DestTime>2018-04-25T18:22:08.6686622+02:00</DestTime>
+  <Importer>XmlImporter</Importer>
+  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
+  <Processor>PassThroughProcessor</Processor>
+  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

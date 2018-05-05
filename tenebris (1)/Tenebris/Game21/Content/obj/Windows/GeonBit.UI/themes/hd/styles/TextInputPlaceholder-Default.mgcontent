@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>D:/Skola/Systemutveckling/tenebris (1)/Tenebris/Game21/Content/GeonBit.UI/themes/hd/styles/TextInputPlaceholder-Default.xml</SourceFile>
+  <SourceTime>2018-04-16T18:47:24+02:00</SourceTime>
+  <DestFile>D:/Skola/Systemutveckling/tenebris (1)/Tenebris/Game21/Content/bin/Windows/GeonBit.UI/themes/hd/styles/TextInputPlaceholder-Default.xnb</DestFile>
+  <DestTime>2018-05-05T09:52:05.7210395+02:00</DestTime>
+  <Importer>XmlImporter</Importer>
+  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
+  <Processor>PassThroughProcessor</Processor>
+  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>D:/Program/Git/Systemutveckling/Kod/Game21/Game21/Content/GeonBit.UI/themes/hd/fonts/Regular.spritefont</SourceFile>
+  <SourceTime>2018-04-16T18:47:24.210313+02:00</SourceTime>
+  <DestFile>D:/Program/Git/Systemutveckling/Kod/Game21/Game21/Content/bin/Windows/GeonBit.UI/themes/hd/fonts/Regular.xnb</DestFile>
+  <DestTime>2018-04-26T15:58:38.8232426+02:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
